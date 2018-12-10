@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 		@message="歡迎!"+session['user'].to_s
 		@prm = User.find_by("name='#{session['user']}'")
 		#顯示身分比自己低的與自己
-		@users = User.where("permission<#{@prm.permission} or name=\"#{session['user']}\"")
+		@users = User.where("permission<#{@prm.permission} or name='#{session['user']}'")
 	end
   end
 
