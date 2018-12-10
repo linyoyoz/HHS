@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<p id="notice"><%= @message %></p>
+<h1>帳號清單</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>帳號</th>
+      <th>密碼</th>
+      <th>身分</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.passwd %></td>
+		<!-用來找到user身分-!>
+        <td><%= Permission.find_by("pid=#{user.permission}").name %></td>
+		
+			<td><%= link_to '詳細資訊', user %></td>
+		<% if user.name==session['user'] || @prm.permission==2%>
+			<td><%= link_to '修改', edit_user_path(user) %></td>
+			<td><%= link_to '刪除', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+	  </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '註冊', new_user_path %>
+<%= link_to '登出', '/sessions/destory' %>
