@@ -52,3 +52,4 @@ production:
   database: Map7_production
   username: Map7
   password: <%= ENV['MAP7_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
