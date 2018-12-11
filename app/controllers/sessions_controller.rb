@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 		session['user']=params[:session][:name]
 		redirect_to ({:controller => 'users', :action => 'index' })
 	else
-		redirect_to({:action =>:new}, notice:"請驗證!"+session['user'].to_s)
+		redirect_to({:action =>:new}, notice:"請驗證!")
 		
 		
 	end

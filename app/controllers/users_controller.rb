@@ -24,10 +24,13 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+	@sighup=1
+	render new
   end
 
   # GET /users/1/edit
   def edit
+	@sighup=0
   end
 
   # POST /users
