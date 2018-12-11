@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
 	if session['user']==0
-		redirect_to({:controller => 'sessions', :action => 'new' }, notice:"已登出!"+session['user'].to_s)
+		redirect_to({:controller => 'sessions', :action => 'new' }, notice:"請登入!")
     else
 		@message="歡迎!"+session['user'].to_s
 		@prm = User.find_by("name='#{session['user']}'")
@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 	#確認自己的權限
+	if session['user']==0
+		redirect_to({:controller => 'sessions', :action => 'new' }, notice:"請登入!")
+	end
 	@prm = User.find_by("name='#{session['user']}'")
   end
 
@@ -25,7 +28,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 	@sighup=1
-	render new
   end
 
   # GET /users/1/edit
