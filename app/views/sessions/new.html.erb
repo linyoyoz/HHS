@@ -5,10 +5,10 @@
 	<%= form.label :密碼 %>
     <%= form.password_field :passwd %>
 	<div class="actions">
-		<div class="g-recaptcha" data-sitekey="6Ld-EYAUAAAAAEsRBYZ5rlt2BKCRVTfSP5iWto6M"></div>
+		
 		<%= form.submit "登入" %>
 	</div>
-	
+	<div class="g-recaptcha" data-sitekey="6Ld-EYAUAAAAAEsRBYZ5rlt2BKCRVTfSP5iWto6M"></div>
 	<p id="notice"><%= notice %></p>
 <% end %>
 <%= link_to '註冊', new_user_path %>

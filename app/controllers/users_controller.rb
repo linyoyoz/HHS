@@ -58,14 +58,14 @@ class UsersController < ApplicationController
 		format.html { redirect_to({:action =>:new}, notice:"密碼至少要有一個數字、英文和特殊字元!"+checkpasswd.to_s)}
 	  elsif user_params[:passwd].length<=8 || user_params[:passwd].length>=20
 		format.html { redirect_to({:action =>:new}, notice:"密碼範圍要在8~20內")}
-	  elsif @user.save
+	  elsif verify_recaptcha(model: @user)&&@user.save #驗證防暴力破解
 		if session['user']==0
 			session['user']=user_params[:name]
 		end
 		format.html { redirect_to({:action =>:index}, notice:'註冊成功!')}
 		#format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { redirect_to({:action =>:new}, notice:"認證失敗!")}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
