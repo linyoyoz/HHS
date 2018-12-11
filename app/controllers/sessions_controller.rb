@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
 	@ans = User.where(cmd)
 	if @ans.length==0
 		redirect_to({:action =>:new}, notice:"帳號密碼錯誤!"+session['user'].to_s)
+	elsif !verify_recaptcha(model: @user)
+		redirect_to({:action =>:new}, notice:"請驗證!"+session['user'].to_s)
 	else
 		session['user']=params[:session][:name]
 		redirect_to ({:controller => 'users', :action => 'index' })
