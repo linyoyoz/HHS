@@ -59,8 +59,11 @@ class UsersController < ApplicationController
 	  elsif user_params[:passwd].length<=8 || user_params[:passwd].length>=20
 		format.html { redirect_to({:action =>:new}, notice:"密碼範圍要在8~20內")}
 	  elsif @user.save
-        format.html { redirect_to @user, notice: '註冊成功!' }
-        format.json { render :show, status: :created, location: @user }
+		if session['user']==0
+			session['user']=user_params[:name]
+		end
+		format.html { redirect_to({:action =>:index}, notice:'註冊成功!')}
+		#format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
