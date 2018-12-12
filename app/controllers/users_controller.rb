@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 		@users = User.where("permission<#{@prm.permission} or name='#{session['user']}'")
 	end
   end
-
+  
   # GET /users/1
   # GET /users/1.json
   def show
@@ -102,7 +102,31 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  #取得price
+  def price
+	@houses=House.all
+	house_name=[]
+	house_price=[]
+	@houses.each do |house|
+		house_name.concat([house.name])
+		house_price.concat([house.price])
+	end
+	@options={:width=>100,:height=>30}
+	@data = 
+	{
+		labels: house_name,
+		datasets: 
+		[
+			{
+				label: "房地產圖表",
+				backgroundColor: "rgba(220,220,220,0)",
+				borderColor: "rgba(220,150,220,1)",
+				data: house_price
+			}
+		]
+	}
+	
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

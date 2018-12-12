@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p id="notice"><%= @message %></p>
+<h1>高雄房價清單</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>地區</th>
+      <th>價錢</th>
+	  <th>顯示</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.name %></td>
+        <td><%= house.price %></td>
+		<td><%= check_box_tag(:pet_dog) %>
+	  </tr>
+    <% end %>
+	
+  </tbody>
+</table>
+<%= line_chart @data,@options %>
+<br>
