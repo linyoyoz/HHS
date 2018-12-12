@@ -94,7 +94,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
 	if @user.name==session['user']#刪除自己
-		session['user']=0
+		session['user']=0#讓自己登出
 	end
     @user.destroy
     respond_to do |format|
@@ -104,28 +104,47 @@ class UsersController < ApplicationController
   end
   #取得price
   def price
-	@houses=House.all
-	house_name=[]
-	house_price=[]
-	@houses.each do |house|
-		house_name.concat([house.name])
-		house_price.concat([house.price])
+	if session['user']==0
+		redirect_to({:controller => 'sessions', :action => 'new' }, notice:"請登入!")
+	else
+		@guest=House.new
+		#取得全部的地區
+		@houses=House.all
 	end
-	@options={:width=>100,:height=>30}
-	@data = 
-	{
-		labels: house_name,
-		datasets: 
-		[
-			{
-				label: "房地產圖表",
-				backgroundColor: "rgba(220,220,220,0)",
-				borderColor: "rgba(220,150,220,1)",
-				data: house_price
-			}
-		]
-	}
-	
+		
+  end
+  def draw
+	@houses=[]
+	@chooses=params[:choose]
+	#防止沒進去導致的錯誤
+	if @chooses.blank?
+		redirect_to({:controller => 'users', :action => 'price' }, notice:"請打勾要的區域")
+	else
+		house_name=[]
+		house_price=[]
+		@chooses.each do |choose|
+			#把在choose內的hid送到圖表中
+			house=House.find_by("hid='#{choose}'")
+			house_name.concat([house.name])
+			house_price.concat([house.price])
+			#讓顯示在下方的house加入選取的house
+			@houses.concat([house])
+		end
+		@options={:width=>100,:height=>30}
+		@data = 
+		{
+			labels: house_name,
+			datasets: 
+			[
+				{
+					label: "房地產圖表",
+					backgroundColor: "rgba(220,220,220,0)",
+					borderColor: "rgba(220,150,220,1)",
+					data: house_price
+				}
+			]
+		}
+	end
   end
   private
     # Use callbacks to share common setup or constraints between actions.

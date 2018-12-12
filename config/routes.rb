@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   #get 'sessions/create'
   get 'sessions/destory'
   get 'users/price'
+  post 'users/price'
+  get 'users/draw'
+  post 'users/draw'
+  
   resources :users
   #resources :sessions
  
