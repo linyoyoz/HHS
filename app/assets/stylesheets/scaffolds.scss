@@ -1,5 +1,5 @@
 body {
-  background-color: #eee;
+  background-color: #EEEEEE;
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -21,9 +21,10 @@ pre {
 
 a {
   color: #000;
-
+  font-size: 14px;
   &:visited {
     color: #666;
+	
   }
 
   &:hover {
@@ -81,4 +82,80 @@ div {
 
 label {
   display: block;
+}
+body{
+  font:1.2em normal Arial,sans-serif;
+  color:#34495E;
+}
+
+h1{
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:-2px;
+  font-size:2.5em;
+  margin:20px 0;
+}
+
+.container{
+  width:90%;
+  margin:auto;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse:collapse;
+  width:75%;
+  background:#CCDDCC;
+}
+
+.blue{
+  border:2px solid #1ABC9C;
+}
+
+.blue thead{
+  background:#1ABC9C;
+}
+
+.purple{
+  border:2px solid #9B59B6;
+}
+
+.purple thead{
+  background:#9B59B6;
+}
+
+thead{
+	background:#AACDAA;
+  color:#111111;
+}
+
+th,td{
+  text-align:center;
+  padding:5px 0;
+  font-size: 14px;
+}
+tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+
+tbody tr:hover{
+background:#BDC3C7;
+  color:#FFFFFF;
+}
+
+.fixed{
+  top:0;
+  position:fixed;
+  width:auto;
+  display:none;
+  border:none;
+}
+
+.scrollMore{
+  margin-top:600px;
+}
+
+.up{
+  cursor:pointer;
 }

@@ -7,21 +7,27 @@
     <tr>
       <th>地區</th>
 	  <th>勾選</th>
+	  <th>地區</th>
+	  <th>勾選</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-	
+	<tr>
     <% @houses.each do |house| %>
-      <tr>
+      
         <td><%= house.name %></td>
  
 		<!-表示讓house.hid的值給予choose-!>
 		<td><%= check_box_tag 'choose[]', house.hid  %>
-	  </tr>
+		<!-1,2,1,2排排站兩個一行-!>
+		<% if house.hid%2==0 %>
+			</tr>
+			<tr>
+		<% end %>
     <% end %>
-	
+	</tr>
   </tbody>
 </table>
 <%= submit_tag "創建" %>
