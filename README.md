@@ -6,9 +6,9 @@
 https://ancient-falls-75723.herokuapp.com  
 
  
-#程式邏輯與資料庫架構  
+# 程式邏輯與資料庫架構  
 
-*系統架構  
+* 系統架構  
 本系統架構如圖下所示  
 ![image](https://github.com/linyoyoz/HHS/blob/master/image/system.png)  
 主要執行後端位於資料夾app/controller內  
