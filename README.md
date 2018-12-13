@@ -23,7 +23,7 @@ https://ancient-falls-75723.herokuapp.com
 * House:
 紀錄每區房價的資訊  
 * 資料關聯圖
-![image](https://github.com/linyoyoz/HHS/blob/master/table.png)
+![image](https://github.com/linyoyoz/HHS/blob/master/image/table.png)  
 # 環境配置  
 
 建議環境:Ubuntu 16.04
@@ -61,7 +61,7 @@ https://price.housefun.com.tw
 * 登入與註冊
 可以使用預設 Username: root Password: 12345 進行登入測試  
 或點擊註冊新建一個 User  
-[image](https://github.com/linyoyoz/HHS/blob/master/image/login.png)
+![image](https://github.com/linyoyoz/HHS/blob/master/image/login.png)  
 
 在登入(session/new)與註冊(users/new)頁面上皆設有google之我不是機器人認證系統  
 每一次的登入或是註冊皆須進行驗證!!(如果頁面沒有顯示請按F5重新載入)  
@@ -69,15 +69,15 @@ https://price.housefun.com.tw
 * 帳號管理
 登入後進入帳號顯示頁面(users/show)
 根據登入的身分為root、users或是guest能夠進行不同權限的帳號管理  
-[image](https://github.com/linyoyoz/HHS/blob/master/image/show.png)
+![image](https://github.com/linyoyoz/HHS/blob/master/image/show.png)  
 
 帳號編輯頁面 
 
 * 房價查詢
-在登入後可以進入房價查詢頁面(users/price)，勾選(複選)要查詢的地區，並按創建
-[image](https://github.com/linyoyoz/HHS/blob/master/image/choose.png)
-在圖表頁面(users/draw)顯示地區之折線圖表內容
-[image](https://github.com/linyoyoz/HHS/blob/master/image/draw.png)
+在登入後可以進入房價查詢頁面(users/price)，勾選(複選)要查詢的地區，並按創建  
+[image](https://github.com/linyoyoz/HHS/blob/master/image/choose.png)  
+在圖表頁面(users/draw)顯示地區之折線圖表內容  
+![image](https://github.com/linyoyoz/HHS/blob/master/image/draw.png)  
 * 結論
 本系統開發一房價查詢之網站，使用ruby on rails 結合mySQL或是Heroku之PostgreSQL達成資料傳輸，並用  
 recaptcha與chartjs-ror等相關套件提供驗證和資料顯示等等功能，並上傳至Heroku來進行雲端的建制。  
