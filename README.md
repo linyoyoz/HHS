@@ -38,9 +38,11 @@ https://price.housefun.com.tw
 
 # 資料匯入
 
-以下以ubuntu 16.04 之terminal進行mysql資料庫的匯入
+以下以ubuntu 16.04 之terminal進行mysql資料庫的匯入  
+
 1. cd Map7  
 進入專案配置之資料夾內  
+
 2.bundle install  
 將相關套件配置完成  
 
