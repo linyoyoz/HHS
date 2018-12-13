@@ -9,10 +9,12 @@ https://ancient-falls-75723.herokuapp.com
 #程式邏輯與資料庫架構  
 
 *系統架構  
-本系統架構如圖下所示
-![image](https://github.com/linyoyoz/HHS/blob/master/image/system.png)
-主要執行後端位於資料夾app/controller內
-前端顯示則於資料夾app/view內
+本系統架構如圖下所示  
+![image](https://github.com/linyoyoz/HHS/blob/master/image/system.png)  
+主要執行後端位於資料夾app/controller內  
+前端顯示則於資料夾app/view內，css與js則位於app/assets  
+資料庫相關部分定義位於app/model內，欄位設定則位於db/mygrate  
+
 
 本系統包含三個資料表:  
 
@@ -53,7 +55,7 @@ https://price.housefun.com.tw
 根據mysql系統 將專案內database資料夾內的sql資料匯入
 
 如果匯入沒問題，應該可以在mysql頁面下看到匯入之資料庫
-![image](https://github.com/linyoyoz/HHS/blob/master/image/data.png) 
+![image](https://github.com/linyoyoz/HHS/blob/master/image/data.png)   
 5.打開config/database.yml這個檔案，根據mysql帳號密碼修改16,17行
 
 6.rails server
@@ -95,5 +97,12 @@ https://price.housefun.com.tw
 # 結論
 
 本系統開發一房價查詢之網站 使用ruby on rails 結合mySQL或是Heroku之PostgreSQL達成資料傳輸，並用  
-recaptcha與chartjs-ror等相關套件提供驗證和資料顯示等等功能，並上傳至Heroku來進行雲端的建制。  
+recaptcha與chartjs-ror等相關套件提供驗證和資料顯示等等功能，並上傳至Heroku來進行雲端的建制。 
+遇到的問題  
+1. recaptcha引用自外部google api須先去其網站設定key後，才能實作，而在測試登入和註冊時因為多次使  
+用導致常常被誤會是機器人而浪費很多時間去確認其圖片  
+
+2. heroku 實作上較難去debug，無法從網頁端觀看，必須從local端下heroku logs --tail 才能追蹤到它的  
+錯誤訊息，導致在heroku上使用recaptcha與chartjs-ror時實作花費較多的時間，而在資料庫上它只免費提  
+供PostgreSQL與linux local的mysql不同，使得某些資料需要重新設定，幸好在創立資料上並沒有衝突。  
  
