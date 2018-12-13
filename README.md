@@ -40,7 +40,7 @@ https://price.housefun.com.tw
 
 以下以ubuntu 16.04 之terminal進行mysql資料庫的匯入  
 
-1. cd Map7  
+1.cd Map7  
 進入專案配置之資料夾內  
 
 2.bundle install  
@@ -50,14 +50,16 @@ https://price.housefun.com.tw
 將專案之資料庫建置出來  
 
 4.mysql -u帳號 -p密碼 Map7_develop < database/database.sql  
-根據mysql系統 將專案內database資料夾內的sql資料匯入   
+根據mysql系統 將專案內database資料夾內的sql資料匯入
 
+如果匯入沒問題，應該可以在mysql頁面下看到匯入之資料庫
+![image](https://github.com/linyoyoz/HHS/blob/master/image/data.png) 
 5.打開config/database.yml這個檔案，根據mysql帳號密碼修改16,17行
 
 6.rails server
-運行 在local端 輸入http://127.0.0.1:3000  \
+運行 在local端 輸入http://127.0.0.1:3000 
 進入網頁  
-<br>
+![image](https://github.com/linyoyoz/HHS/blob/master/image/server.png) 
 
 
 # 執行方式
