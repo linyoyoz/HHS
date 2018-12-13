@@ -28,8 +28,8 @@ https://ancient-falls-75723.herokuapp.com
 ![image](https://github.com/linyoyoz/HHS/blob/master/image/table.png)  
 # 環境配置  
 
-建議環境:Ubuntu 16.04
-(必備)
+建議環境:Ubuntu 16.04  
+(必備)  
 Ruby 版本 2.5.3  
 Rail 版本 5.2.2  
 mysql 版本 5.7.24(資料庫主要資料)  
